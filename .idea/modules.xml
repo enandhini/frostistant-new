@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/O365Sample-master.iml" filepath="$PROJECT_DIR$/O365Sample-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/O365Test.iml" filepath="$PROJECT_DIR$/O365Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frostistant-new.iml" filepath="$PROJECT_DIR$/frostistant-new.iml" />
     </modules>
   </component>
 </project>

@@ -8,6 +8,7 @@ import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -168,7 +169,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         final TextView body = this.body;
         final TextView weather=this.weather;
         final TextView sug=this.suggestion;
-        final View background=this.findViewById(R.id.sv_calendar_content_view);
+        final ImageView background=(ImageView)this.findViewById(R.id.img_calendar_content_view);
 
         String suggestionString="";
         if(data.numberofevents>2)suggestionString+="You have a busy day. ";
