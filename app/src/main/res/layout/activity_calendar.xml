@@ -50,12 +50,6 @@
             android:layout_height="300dp"
             android:id="@+id/img_calendar_content_view"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/tv_calendar_event_body"
-            android:text="&lt;event body here&gt;" />
 
         <LinearLayout
             android:layout_width="fill_parent"

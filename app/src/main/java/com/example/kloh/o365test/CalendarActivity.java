@@ -34,9 +34,8 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     TextView time;
     TextView location;
     TextView weather;
-    TextView body;
     TextView suggestion;
-    int eventIndex = 0;
+    int eventIndex = -1;
     ArrayList Data = new ArrayList();
 
     @Override
@@ -47,7 +46,6 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         this.subject = (TextView)findViewById(R.id.tv_calendar_subject);
         this.time = (TextView)findViewById(R.id.tv_calendar_time);
         this.location = (TextView)findViewById(R.id.tv_calendar_location);
-        this.body = (TextView)findViewById(R.id.tv_calendar_event_body);
         this.weather=(TextView) findViewById(R.id.weather);
         this.suggestion=(TextView)findViewById(R.id.suggestion);
 
@@ -139,13 +137,13 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
     private void initializeData() {
         CalendarData data = new CalendarData(8,4,0,false, 50);
         this.Data.add(data);
-        data = new CalendarData(4,2,0,false, 70);
+        data = new CalendarData(4,0,0,false, 70);
         this.Data.add(data);
         data = new CalendarData(10,0,1,true, 60);
         this.Data.add(data);
-        data = new CalendarData(2,2,0,true, 50);
+        data = new CalendarData(2,0,0,true, 50);
         this.Data.add(data);
-        data = new CalendarData(8,8,0,false, 50);
+        data = new CalendarData(8,8,1,false, 50);
         this.Data.add(data);
     }
 
@@ -166,7 +164,6 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         final TextView subject = this.subject;
         final TextView time = this.time;
         final TextView location = this.location;
-        final TextView body = this.body;
         final TextView weather=this.weather;
         final TextView sug=this.suggestion;
         final ImageView background=(ImageView)this.findViewById(R.id.img_calendar_content_view);
@@ -176,12 +173,13 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
 
         suggestionString+="I suggest that you wear";
 
-        if(data.numberofformalevents>1)suggestionString+="Formal clothes";
-        else suggestionString+="Casual work clothes";
+        if(data.numberofformalevents>0)suggestionString+=" Formal clothes for that formal meeting";
+        else suggestionString+=" Casual work clothes";
+        if(data.weather>60) suggestionString+=" and make them light its warm today";
+        else suggestionString+=" but make sure they are warm its cold today";
+        if(data.numberofeventsindiffbuilding>0) suggestionString+=" and bring along walking shoes for the hike";
 
-        if(data.numberofeventsindiffbuilding>0) suggestionString+=" and bring along walking shoes";
-
-        if(data.isRainy) suggestionString+=" and carry an umbrella";
+        if(data.isRainy) suggestionString+=" and carry an umbrella for the rain";
 
         suggestionString+="!!";
         final String suggestion=suggestionString;
@@ -197,11 +195,15 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
                 else
                     weather.setText("\tIt is "+data.weather+" degrees and not rainy!");
                 sug.setTextColor(Color.RED);
-                sug.setTextSize(30);
+                sug.setTextSize(15);
                 sug.setAllCaps(true);
                 sug.setText(suggestion);
 
-                if(data.weather>60)
+                if(data.numberofformalevents>0)
+                    background.setBackgroundResource(R.drawable.ana);
+                else if(data.numberofeventsindiffbuilding>0)
+                    background.setBackgroundResource(R.drawable.date);
+                else if(data.weather>60)
                     background.setBackgroundResource(R.drawable.hot);
                 else
                     background.setBackgroundResource(R.drawable.cold);
@@ -229,7 +231,7 @@ public class CalendarActivity extends Activity implements View.OnClickListener {
         final TextView subject = this.subject;
         final TextView time = this.time;
         final TextView location = this.location;
-        final TextView body = this.body;
+        final TextView body = this.suggestion;
 
         runOnUiThread(new Runnable() {
             @Override
