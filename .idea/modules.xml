@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Frostistant.iml" filepath="$PROJECT_DIR$/Frostistant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Frostistant-New.iml" filepath="$PROJECT_DIR$/Frostistant-New.iml" />
       <module fileurl="file://$PROJECT_DIR$/O365Sample-master.iml" filepath="$PROJECT_DIR$/O365Sample-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/O365Test.iml" filepath="$PROJECT_DIR$/O365Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
